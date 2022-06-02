@@ -24,6 +24,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
@@ -34,19 +37,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Controller
 @SpringBootApplication
 public class Main {
-
-  @Value("${spring.datasource.url}")
-  private String dbUrl;
-
-  @Autowired
-  private DataSource dataSource;
-
-  public static void main(String[] args) throws Exception {
+  @PostMapping("/getToken")
+  public void postBody(@RequestBody String fullName) {
+    System.out.println("Hello " + fullName);
+  }
+  @GetMapping("/getToken")
+  public void get() {
+    System.out.println("Hello ");
+  }
+  public static void main(String[] args) {
     SpringApplication.run(Main.class, args);
   }
+<<<<<<< HEAD
 
   @RequestMapping("/")
   String index() {
@@ -86,4 +93,7 @@ public class Main {
     }
   }
 
+=======
+>>>>>>> b0b8e0d579b73ba471e59fe895b003617b3997ec
 }
+
