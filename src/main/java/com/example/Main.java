@@ -50,6 +50,7 @@ public class Main {
 
   @RequestMapping("/")
   String index() {
+    System.out.println("YYYYYYYYYYYYYEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSS");
     return "index";
   }
 
